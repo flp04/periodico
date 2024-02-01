@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div style="margin: 20px;">
+    <div v-if="secao" style="margin: 20px;">
       <p>Inicio > {{ secao }}</p>
       <h3>{{ secao.toUpperCase() }}</h3>
     </div>
