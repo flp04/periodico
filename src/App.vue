@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
   <!-- <div > -->
     <Topo></Topo>
 
-    <img alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="margin: 20px 200px 20px 200px;" />
+    <img @click="irParaHome()" alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="cursor: pointer; margin: 20px 200px 20px 200px;" />
     
     <div class="navbar">
       <div class="menu-invisivel" style="width: 100%; display: flex; justify-content: space-around; align-items: center;">
