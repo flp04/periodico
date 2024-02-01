@@ -142,6 +142,7 @@ export default {
     }
 
     .nav-list {
+      z-index: 1;
       display: none;
       flex-direction: column;
       width: 100%;

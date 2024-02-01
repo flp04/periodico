@@ -64,7 +64,7 @@ export default {
 }
 </script>
 <style scoped>
-  article {
+  /* article {
     margin: 10px;
     display: inline-block;
     position: relative;
@@ -77,5 +77,5 @@ export default {
   article p {
     position: absolute;
     bottom: 0;
-  }
+  } */
 </style>
