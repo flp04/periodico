@@ -8,7 +8,11 @@ import HelloWorld from './components/HelloWorld.vue'
   <!-- <div > -->
     <Topo></Topo>
 
-    <img @click="irParaHome()" alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="cursor: pointer; margin: 20px 200px 20px 200px;" />
+    <div style="margin: 20px 150px 20px 150px">
+      <!-- <img @click="irParaHome()" alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="cursor: pointer; margin: 20px 200px 20px 200px;" /> -->
+      <img @click="irParaHome()" alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="cursor: pointer;" />
+      <img @click="irParaHome()" alt="Vue logo" class="logo" src="@/assets/CELOS-728x90-px.gif" style="cursor: pointer; margin-left: 50px;" />
+    </div>
     
     <div class="navbar">
       <div class="menu-invisivel" style="width: 100%; display: flex; justify-content: space-around; align-items: center;">
@@ -32,11 +36,15 @@ import HelloWorld from './components/HelloWorld.vue'
         <li @click="irPara">Blogs</li>
         <li @click="irPara">Especiales</li>
         <li @click="irPara">Multimedia</li>
-        <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+        <svg @click="mostrarCampoBusca" style="color: white;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
       </ul>
     </div>
+    <div class="buscar text-center" style="background-color: white; z-index: 3; position: absolute; border-top: 2px solid red; padding: 10px; display: none; margin-left: 80%;">
+      <input type="text">
+      <button>Buscar</button>
+    </div>
 
-  <RouterView :secao="secao"/>
+  <RouterView @irParaHome="irParaHome" :secao="secao"/>
 
     
   <!-- </div> -->
@@ -70,7 +78,15 @@ export default {
       this.secao = ''
       var navList = document.querySelector('.nav-list');
       navList.classList.remove('show');
-    } 
+    },
+    mostrarCampoBusca() {
+      var input = document.querySelector('.buscar');
+      if (input.style.display == 'none') {
+        input.style.display = 'flex'
+      } else {
+        input.style.display = 'none'
+      }
+    }
   },
 }
 </script>
@@ -137,6 +153,10 @@ export default {
     background-color: white;
     margin: 2px 0;
     display: block;
+  }
+
+  .buscar {
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.3); /* offsetX offsetY blurRadius color */
   }
 
   @media screen and (max-width: 768px) {

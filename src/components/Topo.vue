@@ -139,5 +139,6 @@ export default {
     background-color: black;
     color: white;
     padding: 3px 10px 3px 10px;
+    font-size: 12px;
   }
 </style>

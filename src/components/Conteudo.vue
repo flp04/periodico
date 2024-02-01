@@ -1,7 +1,7 @@
 <template>
   <section>
     <div v-if="secao" style="margin: 20px;">
-      <p>Inicio > {{ secao }}</p>
+      <p><span @click="irParaHome()" style="cursor: pointer;">Inicio</span> > <span>{{ secao }}</span></p>
       <h3>{{ secao.toUpperCase() }}</h3>
     </div>
     <div class="card-group">
@@ -59,6 +59,11 @@ export default {
   data() {
     return {
       // secao: ''
+    }
+  },
+  methods: {
+    irParaHome() {
+      this.$emit('irParaHome')
     }
   },
 }
