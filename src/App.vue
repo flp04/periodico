@@ -20,31 +20,54 @@ import HelloWorld from './components/HelloWorld.vue'
         <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
       </div>
       <ul class="nav-list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li @click="irPara">Local</li>
+        <li @click="irPara">Provincia</li>
+        <li @click="irPara">Región</li>
+        <li @click="irPara">Deportes</li>
+        <li @click="irPara">Sociedad</li>
+        <li @click="irPara">Cultura y Ocio</li>
+        <li @click="irPara">Blogs</li>
+        <li @click="irPara">Especiales</li>
+        <li @click="irPara">Multimedia</li>
+        <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
       </ul>
     </div>
+
+  <RouterView :secao="secao"/>
+
+    
   <!-- </div> -->
 
 </template>
 <script>
+import { RouterView } from 'vue-router'
+// import { Conteudo } from 'vue-router'
+
 export default {
   data() {
     return {
-      
+      secao: ''
     }
   },
   methods: {
     toggleNavbar() {
       var navList = document.querySelector('.nav-list');
       navList.classList.toggle('show');
-    }  
+    },
+    irPara(event) {
+      console.log(event)
+      this.secao = event.target.textContent
+    } 
   },
 }
 </script>
 <style>
+  .topo {
+    background-color: black;
+    color: white;
+    padding: 3px 10px 3px 10px;
+  }
+
   .navbar {
     background-color: #333;
     padding: 15px;
@@ -59,17 +82,21 @@ export default {
     justify-content: space-around;
     width: 100%;
     margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
   }
 
   /* .nav-list li {
     margin-right: 20px;
   } */
 
-  .nav-list a {
-    text-decoration: none;
+  /* .nav-list a { */
+  .nav-list li {
+    /* text-decoration: none; */
     color: white;
     font-weight: bold;
     display: flex;
+    cursor: pointer;
   }
 
   .menu-invisivel img{
@@ -123,6 +150,12 @@ export default {
       top: 60px;
       left: 0;
       background-color: #333;
+      text-transform: capitalize;
+      padding: 5px;
+    }
+
+    .nav-list svg {
+      display: none;
     }
 
     .nav-list.show {
