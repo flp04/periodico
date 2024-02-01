@@ -4,10 +4,12 @@ import HelloWorld from './components/HelloWorld.vue'
 </script> -->
 
 <template>
-  <div class="topo">00.0° São Paulo</div>
-  <!-- <div > -->
-    <img alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="margin: 20px 200px 20px 200px;" />
 
+  <!-- <div > -->
+    <Topo></Topo>
+
+    <img alt="Vue logo" class="logo" src="@/assets/logocabecera-1.png" style="margin: 20px 200px 20px 200px;" />
+    
     <div class="navbar">
       <div class="menu-invisivel" style="width: 100%; display: flex; justify-content: space-around; align-items: center;">
         <div @click="toggleNavbar" class="menu-toggle" id="mobile-menu">
@@ -41,6 +43,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 <script>
 import { RouterView } from 'vue-router'
+import Topo from './components/Topo.vue'
 // import { Conteudo } from 'vue-router'
 
 export default {
@@ -49,25 +52,23 @@ export default {
       secao: ''
     }
   },
+  components: {
+    Topo
+  },
   methods: {
     toggleNavbar() {
       var navList = document.querySelector('.nav-list');
       navList.classList.toggle('show');
     },
     irPara(event) {
-      console.log(event)
       this.secao = event.target.textContent
+      var navList = document.querySelector('.nav-list');
+      navList.classList.remove('show');
     } 
   },
 }
 </script>
 <style>
-  .topo {
-    background-color: black;
-    color: white;
-    padding: 3px 10px 3px 10px;
-  }
-
   .navbar {
     background-color: #333;
     padding: 15px;
@@ -90,9 +91,7 @@ export default {
     margin-right: 20px;
   } */
 
-  /* .nav-list a { */
   .nav-list li {
-    /* text-decoration: none; */
     color: white;
     font-weight: bold;
     display: flex;
